@@ -2,7 +2,7 @@ import { Bot, Keyboard } from "@maxhub/max-bot-api";
 import { getEvent, registration } from "./api/requests.js";
 
 const BOT_TOKEN =
-  process.env.TOKEN;
+ process.env.TOKEN;
 
 const convertToDate = (dateString) => {
   const date = new Date(dateString);
