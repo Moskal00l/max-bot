@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@maxhub/max-bot-api": "^0.2.1",
+    "axios": "^1.13.2"
+  }
+}
