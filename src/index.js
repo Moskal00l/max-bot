@@ -30,6 +30,7 @@ bot.on("bot_started", async (ctx) => {
     event = response.data.event;
     if (event.status === "422") console.log("event_id error");
   } catch (err) {
+    ctx.reply('К сожалению, данная ссылка недействительна.\nПопросите у организатора другую ссылку.')
     console.log("response error");
     return;
   }
