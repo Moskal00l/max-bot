@@ -3,7 +3,7 @@
 unzip max-bot.zip
 
 Команда для загрузки Docker-образа:
-docker load -i myapp.tar
+docker load -i max-bot.tar
 
 Команда для запуска Docker-контейнера:
 docker run -e TOKEN='ваш токен бота' -d moskal01/max-bot:latest
