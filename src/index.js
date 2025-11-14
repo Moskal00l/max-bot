@@ -17,13 +17,24 @@ const convertToDate = (dateString) => {
 
 const bot = new Bot(BOT_TOKEN);
 
-// Обработчик для команды '/start'
-bot.command("help", async (ctx) => {
-  const image = await ctx.api.uploadImage({url: 'https://i.postimg.cc/jStWd4rQ/photo-5242709352819395346-y.jpg'}); 
+// Список команд в чате
+bot.api.setMyCommands([
+  {
+    name: 'help',
+    description: 'Помощь в использование Мини-Приложения.',
+  },
+]);
 
-  await ctx.reply("", {attachments: [image.toJson()]});
+
+// Обработчик для команды '/help'
+bot.command("help", async (ctx) => {
+  try {
+  const image = await ctx.api.uploadImage({url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Photo_5242709352819395346_y.jpg'}); 
+  await ctx.reply('', {attachments: [image.toJson()]});
+  } catch (err) {
+    await ctx.reply('К сожалению, случились технические-шоколадки. Попробуйте позже.')
   }
-);
+});
 
 // Обработчик входа пользователя по ссылке события
 bot.on("bot_started", async (ctx) => {
