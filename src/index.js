@@ -18,7 +18,12 @@ const convertToDate = (dateString) => {
 const bot = new Bot(BOT_TOKEN);
 
 // Обработчик для команды '/start'
-bot.command("start", (ctx) => ctx.reply("Добро пожаловать!"));
+bot.command("help", async (ctx) => {
+  const image = await ctx.api.uploadImage({url: 'https://i.postimg.cc/jStWd4rQ/photo-5242709352819395346-y.jpg'}); 
+
+  await ctx.reply("", {attachments: [image.toJson()]});
+  }
+);
 
 // Обработчик входа пользователя по ссылке события
 bot.on("bot_started", async (ctx) => {
