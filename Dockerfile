@@ -7,4 +7,6 @@ COPY src /app/src
 
 RUN npm install --production
 
+ENV TOKEN=bot_token
+
 CMD ["node", "src/index.js"]
