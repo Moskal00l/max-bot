@@ -6,7 +6,13 @@ const BOT_TOKEN =
 
 const convertToDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toLocaleString(date);
+  return date.toLocaleString('ru-RU', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 };
 
 const bot = new Bot(BOT_TOKEN);
@@ -47,13 +53,13 @@ bot.on("bot_started", async (ctx) => {
       'Вас пригласили на мероприятие "' +
       event.title +
       '"\n' +
-      "++Описание++:\n" +
+      "📝: " +
       event.description +
       "\n" +
-      "🏠:\n" +
+      "🏠: " +
       event.location +
       "\n" +
-      "📅:\n" +
+      "📅: " +
       convertToDate(event.datetime),
       { format: "markdown", attachments: [keyboard_registration] }
     );
@@ -145,8 +151,10 @@ bot.action(/register:(.+)/, async (ctx) => {
 }
 
   const keyboard_app = Keyboard.inlineKeyboard([
-  [Keyboard.button.link("Приложение", 'https://max.ru/t159_hakaton_bot?startapp')],
+  [Keyboard.button.link(" Открыть приложение", 'https://max.ru/t159_hakaton_bot?startapp')],
   ]);
+  
+  await bot.api.editMessage(message_id, {text: message_text, attachments: []});
 
   await bot.api.sendMessageToChat(id_chat,
       "**Вы зарегистрированы ✅**",
@@ -154,10 +162,11 @@ bot.action(/register:(.+)/, async (ctx) => {
         attachments: [keyboard_app]
        });
   
-  await bot.api.sendMessageToUser(creator_id, "На Ваше мероприятие '" + event_title + "' " + "зарегистрировался участник: " 
-    + user.first_name + ' ' + user.last_name);
+  await bot.api.sendMessageToUser(creator_id, 'С радостью сообщаем 🪄:\n\n' + '✅' + user.first_name + ' ' + user.last_name 
+    + 'стал участником вашего мероприятия "' + event_title + '"!' ,
+      { format: "markdown" });
 
-  await bot.api.editMessage(message_id, {text: message_text, attachments: []});
+
 });
 
 bot.start();
