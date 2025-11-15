@@ -11,3 +11,4 @@ docker run -e TOKEN='ваш токен бота' -d moskal01/max-bot:latest
 
 Инструкция по использованию бота:
 
+![Здесь должно быть фотоъ](images/IMG_4560.png)
