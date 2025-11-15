@@ -24,4 +24,4 @@ docker run -e TOKEN='ваш токен бота' -d moskal01/max-bot:latest
 ![Здесь должно быть фото](images/IMG_4566.png)
 
 ### 4. Сканер QR-кодов
-![Здесь должно быть фото](images/IMG_4566.png)
+![Здесь должно быть фото](images/IMG_4597.png)
