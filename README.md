@@ -9,12 +9,15 @@
 ### Действия для остановки бота перед локальным запуском:
 Для остановки бота надо отправить POST-запрос на адрес https://platform-api.max.ru/subscriptions с телом "url": "https://d5d91accnt6pb0c1makn.zj2i1qoy.apigw.yandexcloud.net" и заголовком "Authorization: <Токен>"
 
+### !!!ТОКЕНА БОТА НЕТ В РЕПОЗИТОРИИ!!! 
+P.S. Если нужен напишите в tg @Moskal001
+
 ### Локальный запуск
 Команда для создания Docker-образа:
 docker build -t max-bot:latest .
 
 Команда для запуска Docker-контейнера:
-docker run -e TOKEN='ваш токен бота' -d moskal01/max-bot:latest
+docker run -e BOT_TOKEN='ваш токен бота' -d max-bot:latest
 
 
 ## Инструкция по использованию бота:
