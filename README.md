@@ -5,6 +5,9 @@
 
 ## Инструкция для локального запуска.
 ### (если очень сильно нужно)
+### Действия для остановки боты перед локальным запуском:
+Для остановки бота надо отправить POST-запрос на адрес https://platform-api.max.ru/subscriptions с телом "url": "https://d5d91accnt6pb0c1makn.zj2i1qoy.apigw.yandexcloud.net" и заголовком "Authorization: <Токен>"
+
 
 Команда для создания Docker-образа:
 docker build -t max-bot:latest .
